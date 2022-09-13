@@ -2,31 +2,14 @@
 import pandas as pd
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
-#from airflow.operators.bash import BashOperator
 from datetime import datetime
 import requests
 import json
 
-
 url_variables = "https://raw.githubusercontent.com/arturfc/docker-airflow-ETL-pipeline/main/datasets/variables_results.csv"
 url_results = "https://raw.githubusercontent.com/arturfc/docker-airflow-ETL-pipeline/main/datasets/backtest_results.csv"
 
-#df_variables = pd.read_csv(url_variables, index_col=[0])
-#df_results = pd.read_csv(url_results, index_col=[0])
-
-#df_results.info()
-#url = 'https://data.cityofnewyork.us/resource/rc75-m7u3.json'
-#response = requests.get(url)
-#test = pd.DataFrame(json.loads(response.content))
-#type(df_results.to_json())
-
-#make it seriable into json format
-#df = df_results.to_json()
-
-#converting back again
-#df = pd.read_json(df)
-
-#ingesting variables_input dataset
+#ingesting variables input dataset
 def variables_inputs():
     df_variables = pd.read_csv(url_variables, index_col=[0])
     df_variables = df_variables.to_json()
@@ -38,8 +21,8 @@ def results_raw():
     df_results = df_results.to_json()
     return df_results
 
-
-def results_clean(ti): #ti
+#merging both datasets and transforming the data to a cleaner version
+def results_clean(ti):
     df_variables = ti.xcom_pull(task_ids = 'variables_inputs')
     df_results = ti.xcom_pull(task_ids = 'results_raw')
 
@@ -56,7 +39,7 @@ def results_clean(ti): #ti
 
     return df_results_clean
 
-
+#refining data to get results that uses rsi indicator and contains specific conditions
 def best_RSI_results(ti):
     df_results_clean = ti.xcom_pull(task_ids = 'results_clean')
 
