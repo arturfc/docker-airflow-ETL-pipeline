@@ -54,7 +54,7 @@ def best_RSI_results(ti):
     return df_best_RSI_results
 
 
-with DAG ('dag_example_results', start_date = datetime(2022,9,9),
+with DAG ('dag_etl_best_strategy_results', start_date = datetime(2022,9,9),
             schedule_interval = '30 * * * *', catchup = False) as dag: 
 
     variables_inputs = PythonOperator(
