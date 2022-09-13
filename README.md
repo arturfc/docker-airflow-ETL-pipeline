@@ -46,4 +46,17 @@ Para finalizar o docker, basta executar:
   docker-compose down
 ```
 
-## Como rodar as DAGs dentro do airflow
+## Executando as DAGs na UI do *Airflow*
+
+#### Verifique se o scheduler está marcado com o horário configurado de forma correta.
+
+<div align="center">
+  <img src="https://github.com/arturfc/docker-airflow-ETL-pipeline/blob/main/docs/images/finding_your_dag.png"/>
+</div>
+
+#### DAG view:
+
+<div align="center">
+  <img src="https://github.com/arturfc/docker-airflow-ETL-pipeline/blob/main/docs/images/dag_view.png"/>
+</div>
+
