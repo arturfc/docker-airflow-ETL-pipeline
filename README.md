@@ -1,9 +1,11 @@
 
 # *Airflow* com *docker compose* para criação de pipelines ETL
 
-<imagem aqui (gif do processo sendo executado time sleep 1)>
+<p align="center">
+  <img src="https://github.com/arturfc/docker-airflow-ETL-pipeline/blob/main/docs/images/dag_running.gif" alt="animated" width="700px"/>
+</p>
 
-#### Overview
+#### Visão geral
 Dados são capturados em tempo real para orquestração dos processos ETL,
  utilizando *docker-compose* para administração de um ambiente isolado (apenas configurações necessárias),
   permitindo a utilização do *Airflow* para o gerenciamento de fluxo de trabalho.
@@ -11,12 +13,12 @@ Dados são capturados em tempo real para orquestração dos processos ETL,
 ### ETL **DAG** flow utilizado
 - Extração de dois datasets com chaves em comum, contendo registros de estratégias de mercado financeiro (explicado em <link>).
 - Transformação dos dados, obtendo apenas as informações necessárias para o produto final.
-- Refinamento dos dados para rankear apenas registros que possuem o indicator de *RSI* ativado, taxa de acerto acima de 60% e saldo líquido acima de 500 reais.
+- Refinamento dos dados para rankear apenas registros que possuem o indicador de *RSI* ativado, taxa de acerto acima de 60% e saldo líquido acima de 500 reais.
 
 ## Setup do ambiente
 Será utilizado o docker para obter a instalação enxuta do *Airflow*.
 ### Docker
-Instalação do docker é bem direta, basta efetuar o [download](https://www.docker.com/) e realizar a isntalação padrão.
+A instalação do docker é bem direta, basta efetuar o [download](https://www.docker.com/) e realizar a instalação padrão.
 ### Docker-compose
 Para usuários de Windows e MAC, o docker-compose já foi instalado automaticamente no passo anterior. Para usuários de Linux, é necessário aplicar os seguintes comandos:
 
@@ -54,9 +56,8 @@ Para finalizar o docker, basta executar:
   <img src="https://github.com/arturfc/docker-airflow-ETL-pipeline/blob/main/docs/images/finding_your_dag.png"/>
 </div>
 
-#### DAG view:
+#### DAG view após uma execução bem sucedida:
 
 <div align="center">
   <img src="https://github.com/arturfc/docker-airflow-ETL-pipeline/blob/main/docs/images/dag_view.png"/>
 </div>
-
