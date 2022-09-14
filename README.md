@@ -1,5 +1,5 @@
 
-# *Airflow* com *docker compose* para criação de pipelines ETL
+# *Airflow* com *docker compose* para pipelines ETL
 
 <p align="center">
   <img src="https://github.com/arturfc/docker-airflow-ETL-pipeline/blob/main/docs/images/dag_running.gif" alt="animated" width="700px"/>
