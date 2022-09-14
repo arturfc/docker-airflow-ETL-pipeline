@@ -10,8 +10,8 @@ Dados são capturados em tempo real para orquestração dos processos ETL,
  utilizando *docker-compose* para administração de um ambiente isolado (apenas configurações necessárias),
   permitindo a utilização do *Airflow* para o gerenciamento de fluxo de trabalho.
 
-### ETL **DAG** flow utilizado
-- Extração de dois datasets com chaves em comum, contendo registros de estratégias de mercado financeiro (explicado em <link>).
+### ETL [**DAG**](https://github.com/arturfc/docker-airflow-ETL-pipeline/blob/main/dags/dag_etl_best_strategy_results.py) flow utilizado
+- Extração de dois [datasets](https://github.com/arturfc/docker-airflow-ETL-pipeline/tree/main/datasets#readme) com chaves em comum, contendo registros de estratégias de mercado financeiro.
 - Transformação dos dados, obtendo apenas as informações necessárias para o produto final.
 - Refinamento dos dados para rankear apenas registros que possuem o indicador de *RSI* ativado, taxa de acerto acima de 60% e saldo líquido acima de 500 reais.
 
